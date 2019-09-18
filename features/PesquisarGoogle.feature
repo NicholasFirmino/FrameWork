@@ -25,4 +25,6 @@ Feature: Pesquisar_Google
     Then valido a pesquisa Google
 		   Examples: 
      | 			id 			| 	campo 			|								
-     | 		G_00001 	|		Pesquisa		|	
+     | 		G_00001 	|		Pesquisa		|
+     | 		G_00002 	|		Pesquisa		|
+     | 		G_00003 	|		Pesquisa		|         
