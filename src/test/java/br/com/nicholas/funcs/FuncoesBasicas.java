@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import br.com.nicholas.configs.DriverFactory;
+import br.com.nicholas.drivers.DriverFactory;
 
 public class FuncoesBasicas {
 	

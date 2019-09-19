@@ -15,7 +15,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import br.com.nicholas.configs.DriverFactory;
+import br.com.nicholas.drivers.DriverFactory;
 
 public class FuncoesEvidencias {
 	

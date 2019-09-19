@@ -1,0 +1,4 @@
+br.com.nicholas.tests.PesquisarGoogleTest
+br.com.nicholas.tests.PesquisarGoogleTest2
+br.com.nicholas.tests.PesquisarGoogleTest
+br.com.nicholas.tests.PesquisarGoogleTest2
