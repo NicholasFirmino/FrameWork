@@ -7,5 +7,5 @@ public class PrincipalPage {
 	
 	public By barraDePesquisa() {return By.xpath("//*[@title='Pesquisar']");}
 	
-	public By btnPesquisaGoogle() {return By.xpath("(//*[@class='gNO89b'])[1]");}
+	public By btnPesquisaGoogle() {return By.xpath("(//*[@class='gNO89b'])[2]");}
 }

@@ -10,12 +10,12 @@ public class PrincipalLogic extends FuncoesBasicas{
 	
 	public void euEntroNoSiteDoGoogle() {
 		acessarSite("https://www.google.com/");
-		esperaEstarClicavelPrinta(page.barraDePesquisa(), 2000);
+		esperaEstarClicavel(page.barraDePesquisa(), 2000);
 	}
 	
 	public void pesquiso_no_Google(String id, String campo) throws Throwable {
-		escrevePrinta(page.barraDePesquisa(), fe.getMassaPeloId(id, campo));
-		clicaPrinta(page.btnPesquisaGoogle());
+		escreve(page.barraDePesquisa(), fe.getMassaPeloId(id, campo));
+		clica(page.btnPesquisaGoogle());
 	}
 }
 

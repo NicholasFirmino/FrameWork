@@ -318,26 +318,122 @@ public class FuncoesBasicas {
 		}
 	}
 //------------------------------------------------------------------------------------------------------------------------------
+	/**Método que limpa conteudo e escreve
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 * @param elemento é o elemento a limpado e escrito
+	 * @param escrita é o que vai ser escrito
+	 */
 	public void limpaConteudoEscreve(By elemento, String escrita) {
 		limpaConteudo(elemento);
 		escreve(elemento, escrita);
 	}
-	
+	/**Método que limpa conteudo e escreve
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 * @param printa1 boolean para indicar se ira printar antes, true printa e false NÃO printa
+	 * @param elemento é o elemento a ser clicado
+	 * @param printa2 boolean para indicar se ira printar depois, true printa e false NÃO printa
+	 * @param escrita é o que vai ser escrito
+	 * @param printa3 boolean para indicar se ira printar antes, true printa e false NÃO printa
+	 */
+	public void limpaConteudoEscreve(boolean printa1, By elemento, boolean printa2, String escrita, boolean printa3) {
+		if(printa1) {
+			printa();
+		}
+		limpaConteudo(elemento);
+		if(printa2) {
+			printa();
+		}
+		escreve(elemento, escrita);
+		if(printa3) {
+			printa();
+		}
+	}
+//------------------------------------------------------------------------------------------------------------------------------
+	/**Método que da dois clicks em um elemento
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 * @param elemento é o elemento a clicado duas vezes
+	 */
 	public void clicaDuasVezes(By elemento) {
 		clica(elemento);
 		clica(elemento);
 	}
 	
-	public void esperaEstarVisivel(By elemento) {
-		esperaEstarClicavel(elemento);
-	}
-	
 //________________________________________________________Funções_Básicas_3____________________________________________________
-	
+	/**Método que printa a tela
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 */
 	public void printa() {
 		evid.printaTela();
 	}
 	
+//-----------------------------------------------------------------------------------------------------------------------------
+	/**Método que printa a tela
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 * @param status do teste(passed, failure ...)
+	 * @param nomeTeste para o resultado na evidencia
+	 */
+	public void gerarEvidencia(String status, String nomeTeste) {
+		evid.gerarEvidencia(status, nomeTeste);
+	}
+	
+	/**Método que printa a tela
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 * @param status do teste(passed, failure ...)
+	 * @param nomeTeste para o resultado na evidencia
+	 */
+	public void gerarEvidencia(boolean status, String nomeTeste) {
+		evid.gerarEvidencia(status, nomeTeste);
+	}
+	
+	/**Método que printa a tela
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 * @param printa boolean para indicar se ira printar antes, true printa e false NÃO printa
+	 * @param status do teste(passed, failure ...)
+	 * @param nomeTeste para o resultado na evidencia
+	 */
+	public void gerarEvidencia(boolean printa,String status, String nomeTeste) {
+		if(printa) {
+			printa();
+		}
+		evid.gerarEvidencia(status, nomeTeste);
+	}
+	
+	/**Método que printa a tela
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 * @param printa boolean para indicar se ira printar antes, true printa e false NÃO printa
+	 * @param status do teste(passed, failure ...)
+	 * @param nomeTeste para o resultado na evidencia
+	 */
+	public void gerarEvidencia(boolean printa,boolean status, String nomeTeste) {
+		if(printa) {
+			printa();
+		}
+		evid.gerarEvidencia(status, nomeTeste);
+	}
+//------------------------------------------------------------------------------------------------------------------------------
+	/**Método para validar teste, se o teste for igual ao conteudo texto do elemento return true se não false
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 * @param elemento é o elemento de referncia para verificação
+	 * @param teste é a String a ser verficada com o texto
+	 */
 	public boolean validarTeste(By elemento, String teste) {
 		String texto;
 		Assert.assertEquals(elemento, teste);
@@ -349,6 +445,12 @@ public class FuncoesBasicas {
 		}
 	}
 	
+	/**Método para validar teste, se elemento for encontrado na pagina return true se não false
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 * @param elemento é o elemento de referncia para verificação
+	 */
 	public boolean validarTeste(By elemento) {
 		try {
 			DriverFactory.getWait().until(ExpectedConditions.presenceOfElementLocated(elemento));
@@ -358,28 +460,131 @@ public class FuncoesBasicas {
 		}
 	}
 	
-//________________________________________________________Funções_Básicas_Extra____________________________________________________
-
-	public void urlDaPagina() {
-		DriverFactory.getDriver().getCurrentUrl();
+	/**Método para validar teste, se elemento for encontrado na pagina return true se não false
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 * @param elemento é o elemento de referncia para verificação
+	 */
+	public void esperaEstarClicavelClica(By elemento, boolean printa) {
+		esperaEstarClicavelClica(elemento);
+		clica(elemento);
+		if(printa) {
+			printa();
+		}
 	}
 	
+	/**Método que espera um determinado tempo e printa
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 * @param tempo determinado para espera
+	 * @param printa boolean para indicar se ira printar depois, true printa e false NÃO printa
+	 */
+	public void espera(int tempo, boolean printa) {
+		espera(tempo);
+		if(printa) {
+			printa();
+		}
+		printa();
+	}
+	
+	/**Método que espera elemento estar clicavel
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 * @param elemento que sera esperado para ser clicavel
+	 * @param printa boolean para indicar se ira printar depois, true printa e false NÃO printa
+	 */
+	public void esperaEstarClicavel(By elemento, boolean printa) {
+		esperaEstarClicavel(elemento);
+		if(printa) {
+			printa();
+		}
+	}
+	
+	/**Método que espera elemento estar clicavel
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 * @param elemento que sera esperado para ser clicavel
+	 * @param tempo para prosseguir os processos
+	 */
+	public void esperaEstarClicavel(By elemento, int tempo) {
+		esperaEstarClicavel(elemento);
+		espera(tempo);
+	}
+	
+	/**Método que espera elemento estar clicavel
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 * @param elemento que sera esperado para ser clicavel
+	 * @param espera determinado para continuar o processo
+	 * @param printa boolean para indicar se ira printar depois, true printa e false NÃO printa
+	 */
+	public void esperaEstarClicavel(By elemento, int tempo, boolean printa) {
+		esperaEstarClicavel(elemento);
+		espera(tempo);
+		if(printa) {
+			printa();
+		}
+	}
+	
+//________________________________________________________Funções_Básicas_Extra____________________________________________________
+	
+	/**Método que retorna a url da pagina
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 */
+	public String urlDaPagina() {
+		return DriverFactory.getDriver().getCurrentUrl();
+	}
+	
+	/**Método que fecha a janela aberta
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 */
 	public void fechaJanela() {
 		DriverFactory.getDriver().close();
 	}
 	
+	/**Método que fecha a janela todas as janelas 
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 */
 	public void fechaTodasJanelas() {
 		DriverFactory.getDriver().quit();
 	}
 
+	/**Método que retorna o código fonte da página que foi armazenada como string
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 */	
 	public String origemDaPaginaWeb() {
 		return DriverFactory.getDriver().getPageSource();
 	}
 	
+	/**Método que retorna o código fonte da página que foi armazenada como string
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 */	
 	public String tituloDaPagina() {
 		return DriverFactory.getDriver().getTitle();
 	}
 	
+	/**Método que espera um determinado tempo
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 * @param tempo é valor em ms a ser esperado
+	 * 
+	 */	
 	public void espera(int tempo) {
 		try {
 			Thread.sleep(tempo);
@@ -387,8 +592,17 @@ public class FuncoesBasicas {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**Método que retorna a localização e o tamaanho do elemento
+	 * 
+	 * @author nicholas.firmino
+	 * 
+	 * @param elemento é o objeto referencia da localização e para o tamanho
+	 * 
+	 */	
 	public Rectangle localizacaoEOTamanhoDoElemento(By elemento) {
 		return DriverFactory.getDriver().findElement(elemento).getRect();
 	}
+
+	
 }

@@ -62,7 +62,7 @@ public class DriverFactory {
 		if(!scenario.getStatus().equals("passed")) {
 			fb.printa();
 		}
-		fb.gerarEvidencia(scenario.getStatus(), nomeTeste);
+		fb.gerarEvidencia(true, scenario.getStatus(), nomeTeste);
 		if(driver != null) {
 			driver.quit();
 		}

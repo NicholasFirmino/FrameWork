@@ -203,18 +203,6 @@ public class FuncoesEvidencias {
 		getNomePage().add(nomePrint);
 	}
 	
-	public void printaGeraEvidencia(String nomePrint, String nomePasta) {
-		criaPasta(nomePasta);
-		File file = new File(caminho);
-		TakesScreenshot source = (TakesScreenshot) DriverFactory.getDriver();
-		file = source.getScreenshotAs(OutputType.FILE);
-		try {
-			FileUtils.copyFile(file, new File(caminho.concat(nomePrint).concat(".png")));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
 	public boolean criaPasta(String pasta) {
 		caminho = System.getProperty("user.dir").concat("\\"+ pasta +"\\");	//cria a o caminho da pasta
 		File diretorio = new File(caminho);	//cria um arquivo diretorio com caminho da pasta 
